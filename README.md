@@ -1,70 +1,8 @@
-# Getting Started with Create React App
+# ESP32 Shift Light
+This project uses an ESP32 and uses its ability to multitask using both of its cores in order to communicate through Bluetooth and wifi, an ELM327 and a strip of WS2812b LEDs are also used in this project. On one of the cores the ESP32 first searches for an ELM327 that is plugged into a cars OBII port to connect to and once connected the ESP32 will display a message notifying that it has been connected. The ESP32 will then show the RPMs being read from the ELM327. After connecting to the ELM327, on another core the ESP32 creates a wifi point and starts hosting a local website that was created using React. When connected the user can edit the Low, Mid, and High end of the RPM scale which triggers when the LED's turn on their respective colors. The user is able to edit these values in real time through post requests being sent to the ESP32s server. Values entered are stored and saved on the ESP32 for when the device is powered off and on again
+## Demo Video
+[![Yuotubes](https://user-images.githubusercontent.com/79487120/156852712-b5a3db55-a45f-469c-a65c-00e2d34545d4.jpg)](https://youtu.be/z6IbzuHRPtE)
+## WIfi point & React App
+![Wifi esp32](https://user-images.githubusercontent.com/79487120/156853791-3e95342a-3b67-46dd-afe4-e3486cdf4cbe.jpg) ![React App](https://user-images.githubusercontent.com/79487120/156853796-a17c683f-58cb-44d3-baef-fd8e89386adf.jpg)
+The ESP32 creates an access point which can be connected to. Once connected to, entering the ESP32s IP address into a browser will connect a user to the React app hosted on the ESP32. From here a user can enter values which change the scaling of the LED's activation points in real time. These values are sent through post requests from the react app and saved in the ESP32s SPIFFS for when the device is powered off. The web page has a test rpm value that can be entered to verify that the LEDs are working aswell as being connected to the ELM327.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
