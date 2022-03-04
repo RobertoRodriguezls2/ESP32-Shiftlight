@@ -3,6 +3,6 @@ This project uses an ESP32 and uses its ability to multitask using both of its c
 ## Demo Video
 [![Yuotubes](https://user-images.githubusercontent.com/79487120/156852712-b5a3db55-a45f-469c-a65c-00e2d34545d4.jpg)](https://youtu.be/z6IbzuHRPtE)
 ## WIfi point & React App
-![Wifi esp32](https://user-images.githubusercontent.com/79487120/156853791-3e95342a-3b67-46dd-afe4-e3486cdf4cbe.jpg) ![React App](https://user-images.githubusercontent.com/79487120/156853796-a17c683f-58cb-44d3-baef-fd8e89386adf.jpg)
+![React App](https://user-images.githubusercontent.com/79487120/156853796-a17c683f-58cb-44d3-baef-fd8e89386adf.jpg)
 The ESP32 creates an access point which can be connected to. Once connected to, entering the ESP32s IP address into a browser will connect a user to the React app hosted on the ESP32. From here a user can enter values which change the scaling of the LED's activation points in real time. These values are sent through post requests from the react app and saved in the ESP32s SPIFFS for when the device is powered off. The web page has a test rpm value that can be entered to verify that the LEDs are working aswell as being connected to the ELM327.
 
